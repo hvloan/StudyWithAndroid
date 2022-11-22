@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -18,6 +19,7 @@ import vn.com.hvloan.androidwithjson.services.ServiceBuilder
 class MainActivity : AppCompatActivity() {
 
     lateinit var rcvCountries: RecyclerView
+    lateinit var toolbarHome: Toolbar
     lateinit var countriesAdapter: CountriesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initComponent() {
         rcvCountries = findViewById(R.id.rcvCounties)
+        toolbarHome = findViewById(R.id.toolbarHome)
     }
 
     private fun loadCountries() {

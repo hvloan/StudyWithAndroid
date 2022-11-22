@@ -1,13 +1,13 @@
 package vn.com.hvloan.androidwithjson.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import vn.com.hvloan.androidwithjson.R
 import vn.com.hvloan.androidwithjson.models.MyCountry
 
@@ -26,14 +26,12 @@ class CountriesAdapter(private val context: Context, private val countriesList: 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d("FLAG: ", "https://raw.githubusercontent.com/hvloan/StudyWithAndroid/main/flags/${countriesList[position].iso2.lowercase()}.svg")
         holder.nameCountry.text = countriesList[position].name
-        val urlFlagCountry = "https://raw.githubusercontent.com/hvloan/StudyWithAndroid/main/flags/${countriesList[position].iso2.lowercase()}.svg"
-//        Glide
-//            .with(context)
-//            .load(urlFlagCountry)
-//            .apply()
-//            .into(holder.image)
+        val urlFlagCountry = "https://www.worldatlas.com/r/w960-q80/img/flag/${countriesList[position].iso2.lowercase()}-flag.jpg"
+        Glide
+            .with(context)
+            .load(urlFlagCountry)
+            .into(holder.imgFlagCountry)
 
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(countriesList[position])
