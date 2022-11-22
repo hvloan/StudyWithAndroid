@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AndroidWithJson</string>
     <string name="vietnam">VietNam</string>
+    <string name="search">Search</string>
+    <string name="exit">Exit</string>
+    <string name="flagcountry">flagCountry</string>
 </resources>
