@@ -16,7 +16,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class CountrySearchAdapter(context: Context, resource: Int, objects: ArrayList<MyCountry>) : ArrayAdapter<MyCountry>(context, resource, objects) {
-    private val listSearchCountry: MutableList<MyCountry>
+    private val listSearchCountry: List<MyCountry>
 
     @SuppressLint("SetTextI18n")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

@@ -4,4 +4,7 @@
     <string name="search">Search</string>
     <string name="exit">Exit</string>
     <string name="flagcountry">flagCountry</string>
+    <string name="regions">Regions</string>
+    <string name="view_all">View All</string>
+    <string name="countries">Countries</string>
 </resources>
