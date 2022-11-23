@@ -1,13 +1,13 @@
 package vn.com.hvloan.androidwithjson.activities
 
+import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.Menu
-import android.widget.AdapterView
-import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +17,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import vn.com.hvloan.androidwithjson.R
 import vn.com.hvloan.androidwithjson.adapters.CountriesAdapter
-import vn.com.hvloan.androidwithjson.adapters.CountrySearchAdapter
 import vn.com.hvloan.androidwithjson.adapters.RegionsAdapter
 import vn.com.hvloan.androidwithjson.models.MyCountry
 import vn.com.hvloan.androidwithjson.services.CountryService
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var toolbarHome: Toolbar
     lateinit var countriesAdapter: CountriesAdapter
     lateinit var regionsAdapter: RegionsAdapter
-    private lateinit var searchView: AutoCompleteTextView
+    private lateinit var searchView: SearchView
     lateinit var countriesList: List<MyCountry>
     lateinit var regionsList: List<MyCountry>
     private var widthScreen = 0
@@ -41,8 +40,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initComponent(applicationContext)
-        setupToolbar()
         loadData()
+        setupToolbar()
     }
 
     private fun initComponent(context: Context) {
@@ -54,20 +53,6 @@ class MainActivity : AppCompatActivity() {
         widthScreen = context.resources.displayMetrics.widthPixels
     }
 
-    private fun setupCountrySearchAdapter(listCountries: List<MyCountry>) {
-        val countrySearchAdapter = CountrySearchAdapter(
-            this,
-            R.layout.item_search,
-            listCountries as ArrayList<MyCountry>
-        )
-        searchView.setAdapter(countrySearchAdapter)
-        searchView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-//            val intent = Intent(this, DetailActivity::class.java)
-//            intent.putExtra("data", listProduct[position])
-//            startActivity(intent)
-        }
-    }
-
     private fun setupToolbar() {
         setSupportActionBar(toolbarHome)
         val actionBar: ActionBar? = supportActionBar
@@ -76,11 +61,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.item_menu_toolbar_home, menu)
+        val searchManager: SearchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        searchView = menu?.findItem(R.id.actionSearch)?.actionView as SearchView
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.maxWidth = widthScreen
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                countriesAdapter.filter.filter(query)
+                return false
+            }
 
-        val itemSearch = menu!!.findItem(R.id.action_search)
-        searchView = itemSearch.actionView as AutoCompleteTextView
-        searchView.hint = "What are you finding?"
-        searchView.width = widthScreen
+            override fun onQueryTextChange(newText: String?): Boolean {
+                countriesAdapter.filter.filter(newText)
+                return false
+            }
+
+        })
         return true
     }
 
@@ -106,8 +102,6 @@ class MainActivity : AppCompatActivity() {
                     regionsAdapter = RegionsAdapter(this@MainActivity, regionsList)
                     rcvRegions.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
                     rcvRegions.adapter = regionsAdapter
-                    //set data for search adapter
-                    setupCountrySearchAdapter(countriesList)
                 }else{
                     Toast.makeText(this@MainActivity, "Something went wrong ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
