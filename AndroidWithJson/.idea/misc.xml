@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/drawable/background_spiner.xml" value="0.166" />
+        <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/drawable/background_spinner.xml" value="0.121" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/drawable/item_country_background.xml" value="0.166" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/drawable/rounder_text.xml" value="0.166" />
+        <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/activity_all_regions.xml" value="0.264" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/item_country.xml" value="0.22826086956521738" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/item_region.xml" value="0.22826086956521738" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/item_search.xml" value="0.264" />
+        <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/item_spin_region.xml" value="0.22826086956521738" />
+        <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/layout/item_spin_region_selected.xml" value="0.22826086956521738" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/menu/item_menu_home.xml" value="0.24895833333333334" />
         <entry key="..\:/hvloan/SourceCode/StudyWithAndroid/AndroidWithJson/app/src/main/res/menu/item_menu_toolbar_home.xml" value="0.24615384615384617" />
       </map>

@@ -2,8 +2,10 @@ package vn.com.hvloan.androidwithjson.activities
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var rcvCountries: RecyclerView
     lateinit var rcvRegions: RecyclerView
     lateinit var toolbarHome: Toolbar
+    lateinit var btnViewAllRegions: TextView
     lateinit var countriesAdapter: CountriesAdapter
     lateinit var regionsAdapter: RegionsAdapter
     private lateinit var searchView: SearchView
@@ -42,12 +45,20 @@ class MainActivity : AppCompatActivity() {
         initComponent(applicationContext)
         loadData()
         setupToolbar()
+        actionComponent()
+    }
+
+    private fun actionComponent() {
+        btnViewAllRegions.setOnClickListener {
+            startActivity(Intent(this, AllRegionsActivity::class.java))
+        }
     }
 
     private fun initComponent(context: Context) {
         rcvCountries = findViewById(R.id.rcvCountries)
         rcvRegions = findViewById(R.id.rcvRegion)
         toolbarHome = findViewById(R.id.toolbarHome)
+        btnViewAllRegions = findViewById(R.id.btnSeeAllRegions)
         countriesList = ArrayList()
         regionsList = ArrayList()
         widthScreen = context.resources.displayMetrics.widthPixels

@@ -7,4 +7,8 @@
     <string name="regions">Regions</string>
     <string name="view_all">View All</string>
     <string name="countries">Countries</string>
+    <string name="south_eastern_asia">South-Eastern Asia</string>
+    <string name="imagedropdown">imageDropdown</string>
+    <string name="region">Region</string>
+    <string name="subregion">SubRegion</string>
 </resources>
