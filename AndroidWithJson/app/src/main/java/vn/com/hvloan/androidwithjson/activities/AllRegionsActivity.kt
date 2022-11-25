@@ -10,10 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import vn.com.hvloan.androidwithjson.R
+import vn.com.hvloan.androidwithjson.adapters.CountriesAdapter
 import vn.com.hvloan.androidwithjson.models.MyCountry
 import vn.com.hvloan.androidwithjson.services.CountryService
 import vn.com.hvloan.androidwithjson.services.ServiceBuilder
@@ -24,12 +27,15 @@ class AllRegionsActivity : AppCompatActivity() {
     lateinit var spinnerRegion: Spinner
     lateinit var spinnerSubRegion: Spinner
     lateinit var toolbarAllRegions: Toolbar
+    lateinit var rcvFilterCountry: RecyclerView
 
     lateinit var countriesList: List<MyCountry>
     lateinit var regionsList: List<MyCountry>
     lateinit var subRegionList: List<MyCountry>
 
     lateinit var arrayRegionAdapter: ArrayAdapter<String>
+    lateinit var arraySubRegionAdapter: ArrayAdapter<String>
+    lateinit var filterCountriesAdapter: CountriesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +51,14 @@ class AllRegionsActivity : AppCompatActivity() {
         regionsList.forEach {
             nameRegionList.add(it.region)
         }
+
         arrayRegionAdapter = ArrayAdapter(applicationContext, R.layout.item_spin_region, nameRegionList)
         spinnerRegion.adapter = arrayRegionAdapter
 
         spinnerRegion.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-
+            override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
+                val nameRegionSelected = nameRegionList[position]
+                setupSubRegionSpinner(nameRegionSelected)
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -58,6 +66,43 @@ class AllRegionsActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    private fun setupSubRegionSpinner(nameRegionSelected: String) {
+        val nameSubRegionList = ArrayList<String>()
+        subRegionList.forEach {
+            if (it.region == nameRegionSelected) {
+                nameSubRegionList.add(it.subregion)
+            }
+        }
+        arraySubRegionAdapter = ArrayAdapter(applicationContext, R.layout.item_spin_region, nameSubRegionList)
+        spinnerSubRegion.adapter = arraySubRegionAdapter
+
+        spinnerSubRegion.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
+                val nameSubRegionSelected = nameSubRegionList[position]
+                Log.d("DTB", "$nameRegionSelected - $nameSubRegionSelected")
+                setupRcvFilterCountry(nameSubRegionSelected)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+        }
+    }
+
+    private fun setupRcvFilterCountry( nameSubRegionSelected: String) {
+        val filterCountriesList = ArrayList<MyCountry>()
+        countriesList.forEach {
+            if (it.subregion == nameSubRegionSelected) {
+                filterCountriesList.add(it)
+            }
+        }
+        filterCountriesAdapter = CountriesAdapter(this@AllRegionsActivity, filterCountriesList)
+        rcvFilterCountry.visibility = View.VISIBLE
+        rcvFilterCountry.layoutManager = GridLayoutManager(this@AllRegionsActivity,2)
+        rcvFilterCountry.adapter = filterCountriesAdapter
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -69,6 +114,7 @@ class AllRegionsActivity : AppCompatActivity() {
         spinnerRegion = findViewById(R.id.spinRegion)
         spinnerSubRegion = findViewById(R.id.spinSubRegion)
         toolbarAllRegions = findViewById(R.id.toolbarAllRegions)
+        rcvFilterCountry = findViewById(R.id.rcvFilterCountry)
         countriesList = ArrayList()
         regionsList = ArrayList()
         subRegionList = ArrayList()
