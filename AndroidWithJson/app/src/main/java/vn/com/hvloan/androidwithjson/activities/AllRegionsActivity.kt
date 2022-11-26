@@ -1,5 +1,6 @@
 package vn.com.hvloan.androidwithjson.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -103,6 +104,11 @@ class AllRegionsActivity : AppCompatActivity() {
         rcvFilterCountry.visibility = View.VISIBLE
         rcvFilterCountry.layoutManager = GridLayoutManager(this@AllRegionsActivity,2)
         rcvFilterCountry.adapter = filterCountriesAdapter
+        filterCountriesAdapter.onItemClick = {
+            val intent = Intent(this, DetailCountryActivity::class.java)
+            intent.putExtra("DATA", it)
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -151,9 +157,6 @@ class AllRegionsActivity : AppCompatActivity() {
                     setupRegionSpinner(regionsList)
                     //set data for sub regions
                     subRegionList = getDataSubRegion(countriesList)
-                    subRegionList.forEach {
-                        Log.d("TAG DATA: ", it.subregion)
-                    }
                 }else{
                     Toast.makeText(applicationContext, "Something went wrong ${response.message()}", Toast.LENGTH_SHORT).show()
                 }

@@ -30,6 +30,9 @@ class DetailCountryActivity : AppCompatActivity() {
     lateinit var timezoneDetailCountry: TextView
     lateinit var capitalDetailCountry: TextView
     lateinit var statesDetailCountry: TextView
+    lateinit var textCurrency: TextView
+    lateinit var textNameCurrency: TextView
+    lateinit var textSymbolCurrency: TextView
     lateinit var listViewSates: ListView
 
 
@@ -45,6 +48,9 @@ class DetailCountryActivity : AppCompatActivity() {
 
     private fun actionComponent() {
         btnVisibleCurrency.setOnClickListener {
+            checkVisibleComponent(textCurrency)
+            checkVisibleComponent(textNameCurrency)
+            checkVisibleComponent(textSymbolCurrency)
             checkVisibleComponent(currencyDetailCountry)
             checkVisibleComponent(currencyNameDetailCountry)
             checkVisibleComponent(currencySymbolDetailCountry)
@@ -103,7 +109,7 @@ class DetailCountryActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(findViewById(R.id.toolbarDetailCountry))
+        setSupportActionBar(toolbarDetailCountry)
 
         val actionBar: ActionBar? = supportActionBar
         actionBar?.setDisplayShowTitleEnabled(false)
@@ -117,6 +123,7 @@ class DetailCountryActivity : AppCompatActivity() {
     }
 
     private fun initComponent() {
+        toolbarDetailCountry = findViewById(R.id.toolbarDetailCountry)
         flagDetailCountry = findViewById(R.id.flagDetailCountry)
         nameDetailCountry = findViewById(R.id.nameDetailCountry)
         isoDetailCountry = findViewById(R.id.isoDetailCountry)
@@ -129,6 +136,10 @@ class DetailCountryActivity : AppCompatActivity() {
         timezoneDetailCountry = findViewById(R.id.timezoneDetailCountry)
         capitalDetailCountry = findViewById(R.id.capitalDetailCountry)
         statesDetailCountry = findViewById(R.id.statesDetailCountry)
+        textCurrency = findViewById(R.id.textCurrencyDetailCountry)
+        textNameCurrency = findViewById(R.id.textCurrencyNameDetailCountry)
+        textSymbolCurrency = findViewById(R.id.textCurrencySymbolDetailCountry)
+
         listViewSates = findViewById(R.id.listViewSates)
 
     }
