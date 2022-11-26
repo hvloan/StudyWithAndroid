@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
@@ -24,6 +25,7 @@ import vn.com.hvloan.androidwithjson.adapters.RegionsAdapter
 import vn.com.hvloan.androidwithjson.models.MyCountry
 import vn.com.hvloan.androidwithjson.services.CountryService
 import vn.com.hvloan.androidwithjson.services.ServiceBuilder
+import kotlin.system.exitProcess
 
 
 class MainActivity : AppCompatActivity() {
@@ -91,6 +93,16 @@ class MainActivity : AppCompatActivity() {
 
         })
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.actionExit -> {
+                finish();
+                exitProcess(0);
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun getDataRegion(list: List<MyCountry>): List<MyCountry> {
