@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AndroidWithJson"
         tools:targetApi="31">
         <activity
+            android:name=".activities.DetailCountryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AllRegionsActivity"
             android:exported="false" />
         <activity

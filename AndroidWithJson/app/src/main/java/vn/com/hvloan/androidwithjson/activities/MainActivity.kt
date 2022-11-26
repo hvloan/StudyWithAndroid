@@ -107,14 +107,10 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful){
                     countriesList  = response.body()!!
                     //set data for countries adapter
-                    countriesAdapter = CountriesAdapter(this@MainActivity, countriesList)
-                    rcvCountries.layoutManager = GridLayoutManager(this@MainActivity,2)
-                    rcvCountries.adapter = countriesAdapter
+                    setupRcvCountries(countriesList)
                     //set data for regions adapter
                     regionsList = getDataRegion(countriesList)
-                    regionsAdapter = RegionsAdapter(this@MainActivity, regionsList)
-                    rcvRegions.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-                    rcvRegions.adapter = regionsAdapter
+                    setupRcvRegions(regionsList)
                 }else{
                     Toast.makeText(this@MainActivity, "Something went wrong ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
@@ -123,5 +119,22 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Something went wrong $t", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    fun setupRcvCountries(countriesList: List<MyCountry>) {
+        countriesAdapter = CountriesAdapter(this@MainActivity, countriesList)
+        rcvCountries.layoutManager = GridLayoutManager(this@MainActivity,2)
+        rcvCountries.adapter = countriesAdapter
+        countriesAdapter.onItemClick = {
+            val intent = Intent(this, DetailCountryActivity::class.java)
+            intent.putExtra("DATA", it)
+            startActivity(intent)
+        }
+    }
+
+    fun setupRcvRegions(regionsList: List<MyCountry>) {
+        regionsAdapter = RegionsAdapter(this@MainActivity, regionsList)
+        rcvRegions.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+        rcvRegions.adapter = regionsAdapter
     }
 }

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailCountryActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetailCountry"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/flagDetailCountry"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@id/toolbarDetailCountry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/flagcountry" />
+
+    <TextView
+        android:id="@+id/nameDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/flagDetailCountry"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/vietnam"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:id="@+id/isoDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/nameDetailCountry"
+        android:text="@string/vn"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:id="@+id/textPhoneCodeDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_code"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/nameDetailCountry"
+        app:layout_constraintStart_toStartOf="@id/nameDetailCountry"/>
+
+    <TextView
+        android:id="@+id/phoneCodeDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_84"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/textPhoneCodeDetailCountry"
+        app:layout_constraintBaseline_toBaselineOf="@id/textPhoneCodeDetailCountry"
+        android:layout_marginStart="8dp"/>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/btnVisibleCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_plus"
+        android:scaleType="fitCenter"
+        app:riv_corner_radius="30dip"
+        app:riv_border_width="2dip"
+        app:riv_border_color="#333333"
+        app:riv_mutate_background="true"
+        app:riv_tile_mode="repeat"
+        app:riv_oval="true"
+        app:layout_constraintTop_toBottomOf="@id/textPhoneCodeDetailCountry"
+        app:layout_constraintStart_toStartOf="@id/textPhoneCodeDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/currency"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVisibleCurrency"
+        app:layout_constraintStart_toEndOf="@id/btnVisibleCurrency" />
+
+    <TextView
+        android:id="@+id/textCurrencyDetailCountry"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_currency"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@id/textCurrency"
+        app:layout_constraintTop_toBottomOf="@id/textCurrency"/>
+
+    <TextView
+        android:id="@+id/currencyDetailCountry"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vnd"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/textCurrencyDetailCountry"
+        app:layout_constraintBaseline_toBaselineOf="@id/textCurrencyDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textCurrencyNameDetailCountry"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currency_name"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@id/textCurrencyDetailCountry"
+        app:layout_constraintTop_toBottomOf="@id/textCurrencyDetailCountry"/>
+
+    <TextView
+        android:id="@+id/currencyNameDetailCountry"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vietnamese_vnd"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/textCurrencyNameDetailCountry"
+        app:layout_constraintBaseline_toBaselineOf="@id/textCurrencyNameDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textCurrencySymbolDetailCountry"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currency_symbol"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@id/textCurrencyNameDetailCountry"
+        app:layout_constraintTop_toBottomOf="@id/textCurrencyNameDetailCountry"/>
+
+    <TextView
+        android:id="@+id/currencySymbolDetailCountry"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vnd"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/textCurrencySymbolDetailCountry"
+        app:layout_constraintBaseline_toBaselineOf="@id/textCurrencySymbolDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textRegionDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_region"
+        android:textColor="@color/black"
+        android:layout_marginTop="4dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/textPhoneCodeDetailCountry"
+        app:layout_constraintTop_toBottomOf="@id/textCurrencySymbolDetailCountry" />
+
+    <TextView
+        android:id="@+id/regionDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:text="@string/south_eastern_asia"
+        app:layout_constraintStart_toEndOf="@id/textRegionDetailCountry"
+        app:layout_constraintBaseline_toBaselineOf="@id/textRegionDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textTimezoneDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/timezone"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/textRegionDetailCountry"
+        app:layout_constraintTop_toBottomOf="@id/textRegionDetailCountry"/>
+
+    <TextView
+        android:id="@+id/timezoneDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/utc_07_00"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/textTimezoneDetailCountry"
+        app:layout_constraintStart_toEndOf="@id/textTimezoneDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textCapitalDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/capital"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/textTimezoneDetailCountry"
+        app:layout_constraintTop_toBottomOf="@id/textTimezoneDetailCountry"/>
+
+    <TextView
+        android:id="@+id/capitalDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ha_noi"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/textCapitalDetailCountry"
+        app:layout_constraintStart_toEndOf="@id/textCapitalDetailCountry"/>
+
+    <TextView
+        android:id="@+id/textStatesDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/number_states"
+        app:layout_constraintStart_toStartOf="@id/textCapitalDetailCountry"
+        app:layout_constraintTop_toBottomOf="@id/textCapitalDetailCountry"/>
+
+    <TextView
+        android:id="@+id/statesDetailCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_63"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textStatesDetailCountry"
+        app:layout_constraintBaseline_toBaselineOf="@id/textStatesDetailCountry"/>
+
+    <ListView
+        android:id="@+id/listViewSates"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/textStatesDetailCountry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

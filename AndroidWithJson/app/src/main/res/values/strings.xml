@@ -11,4 +11,20 @@
     <string name="imagedropdown">imageDropdown</string>
     <string name="region">Region</string>
     <string name="subregion">SubRegion</string>
+    <string name="vn">VN</string>
+    <string name="_84">+84</string>
+    <string name="phone_code">Phone code:</string>
+    <string name="currency">Currency</string>
+    <string name="_currency">Currency:</string>
+    <string name="vnd">VND</string>
+    <string name="currency_name">Currency name:</string>
+    <string name="vietnamese_vnd">Vietnamese vnd</string>
+    <string name="currency_symbol">Currency symbol:</string>
+    <string name="_region">Region:</string>
+    <string name="timezone">Timezone:</string>
+    <string name="utc_07_00">UTC+07:00</string>
+    <string name="capital">Capital:</string>
+    <string name="ha_noi">Ha noi</string>
+    <string name="number_states">Number states:</string>
+    <string name="_63">63</string>
 </resources>

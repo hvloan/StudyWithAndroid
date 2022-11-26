@@ -1,5 +1,7 @@
 package vn.com.hvloan.androidwithjson.models
 
+import java.io.Serializable
+
 class MyCountry(
         val capital: String,
         val currency: String,
@@ -21,7 +23,7 @@ class MyCountry(
         val timezones: List<Timezone>,
         val tld: String,
         val translations: Translations
-    ) {
+    ): Serializable {
 
     data class Translations(
         val cn: String,
@@ -36,7 +38,7 @@ class MyCountry(
         val nl: String,
         val pt: String,
         val tr: String
-    )
+    ): Serializable
 
     data class Timezone(
         val abbreviation: String,
@@ -44,7 +46,7 @@ class MyCountry(
         val gmtOffsetName: String,
         val tzName: String,
         val zoneName: String
-    )
+    ): Serializable
 
     data class State(
         val id: Int,
@@ -53,5 +55,5 @@ class MyCountry(
         val name: String,
         val state_code: String,
         val type: String
-    )
+    ): Serializable
 }
