@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="vn.com.hvloan.androidwithnotification">
 
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidWithNotification"
         tools:targetApi="31">
+        <activity
+            android:name=".AlertDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
