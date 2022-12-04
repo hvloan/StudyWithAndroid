@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">AndroidWithNotification</string>
-    <string name="create_basic_notification">Create basic notification</string>
-    <string name="notification_title">Notification Title</string>
-    <string name="notification_content">Notification Content</string>
-    <string name="create_notification">Create Notification</string>
-</resources>
