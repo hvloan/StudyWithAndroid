@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidWithNotifications</string>
+    <string name="simple_text">Simple Text</string>
+    <string name="android_notification">Android Notification</string>
+    <string name="big_text">Big Text</string>
+    <string name="image_picture">Image Picture</string>
+    <string name="inbox_me">Inbox Me</string>
+    <string name="messaging">Messaging</string>
+    <string name="rainbow_image">Rainbow Image</string>
 </resources>

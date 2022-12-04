@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +8,89 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="42dp"
+        android:text="@string/android_notification"
+        android:textColor="@color/rainbow_purple"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSimpleText"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:drawableLeft="@drawable/ic_color_text"
+        android:text="@string/simple_text"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/rainbow_blue"
+        app:layout_constraintEnd_toStartOf="@+id/btnBigText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message" />
+
+    <Button
+        android:id="@+id/btnBigText"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_align_justify"
+        android:text="@string/big_text"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/rainbow_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSimpleText"
+        app:layout_constraintTop_toTopOf="@+id/btnSimpleText" />
+
+    <Button
+        android:id="@+id/btnBigPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_image"
+        android:layout_marginTop="50dp"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/rainbow_yellow"
+        android:text="@string/image_picture"
+        app:layout_constraintEnd_toStartOf="@+id/btnInbox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSimpleText" />
+
+    <Button
+        android:id="@+id/btnInbox"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_chat"
+        android:text="@string/inbox_me"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/rainbow_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBigPicture"
+        app:layout_constraintTop_toTopOf="@+id/btnBigPicture" />
+
+    <Button
+        android:id="@+id/btnMessaging"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_email"
+        android:text="@string/messaging"
+        android:layout_marginTop="50dp"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/rainbow_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBigPicture" />
+
+    <ImageView
+        android:layout_width="390dp"
+        android:layout_height="161dp"
+        android:contentDescription="@string/rainbow_image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
